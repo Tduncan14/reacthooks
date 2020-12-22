@@ -1,4 +1,20 @@
-import React,{Component} from 'react';
+// import React,{Component} from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+
+
+   return [value,setState]
+
+
+
+
+
+
+
+
+
 
 
 class Myname extends Component{
