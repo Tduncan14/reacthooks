@@ -10,7 +10,7 @@ let currentHook = 0;
 function useState(initialState){
 
 
-  if(typeof values[currentHook] === 'undefined') values[currentHook]= initialState;
+  if(typeof values[currentHook] === 'undefined') values[currentHook] = initialState;
 
 
 
@@ -23,6 +23,9 @@ function useState(initialState){
 
   }
 
+    console.log(values,'this the array')
+     console.log(values[currentHook++],"heello")
+      
    return [values[currentHook++],setState]
 }
 
