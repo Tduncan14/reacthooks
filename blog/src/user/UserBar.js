@@ -7,9 +7,9 @@ import Register from './Register';
 
 
 
-export default function UseBar(){
+export default function UseBar({user,setUser}){
 
-   const [user, setUser] = useState('')
+   
 
 
     if(user){
@@ -20,7 +20,7 @@ export default function UseBar(){
         return(
             <>
             <Login setUser={setUser} />
-            {/* <Register setUser={setUser} /> */}
+            <Register setUser={setUser} />
 
 
             </>

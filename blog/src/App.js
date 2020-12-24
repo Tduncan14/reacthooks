@@ -8,7 +8,7 @@ import CreatePost from './post/CreatePost';
 import PostList from './post/PostList';
 
 
-const posts = [
+const defaultPosts = [
   { title: 'React Hooks', content: 'The greatest thing since sliced bread!', author: 'Daniel Bugl' },
   { title: 'Using React Fragments', content: 'Keeping the DOM tree clean!', author: 'Daniel Bugl' }
 ]
@@ -17,6 +17,9 @@ const posts = [
 
 function App() {
 
+  const [user,setUser] = useState('')
+  
+  const[posts,setPosts] = useState(defaultPosts);
 
 
 
@@ -27,10 +30,10 @@ function App() {
       <Logout user="Treek Lee" />
       <Register /> */}
 
-      <UserBar/>
+      <UserBar user={user} setUser={setUser}/>
        {/* <CreatePost user="treek" /> */}
        <br />
-        <CreatePost  />
+        { user && <CreatePost user={user} posts={posts}  setPosts={setPosts} />}
         <br />
         <hr />
         <PostList posts={posts} />
