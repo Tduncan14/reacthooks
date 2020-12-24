@@ -1,4 +1,4 @@
-
+import React, {useState} from 'react';
 import Login from './user/Login';
 import Logout from './user/Logout';
 import Register from './user/Register';
@@ -13,9 +13,14 @@ const posts = [
   { title: 'Using React Fragments', content: 'Keeping the DOM tree clean!', author: 'Daniel Bugl' }
 ]
 
-const user = ["Treek"]
+
 
 function App() {
+
+
+
+
+
   return (
     <div style={{padding:8}}>
       {/* <Login />
@@ -25,7 +30,7 @@ function App() {
       <UserBar/>
        {/* <CreatePost user="treek" /> */}
        <br />
-        <CreatePost user={user} />
+        <CreatePost  />
         <br />
         <hr />
         <PostList posts={posts} />

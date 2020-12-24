@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 
 import Login from './Login';
@@ -9,18 +9,18 @@ import Register from './Register';
 
 export default function UseBar(){
 
-    const user = 'Treek Lee';
+   const [user, setUser] = useState('')
 
 
     if(user){
-        return <Logout user={user} />
+        return <Logout user={user} setUser={setUser} />
     }
     else{
 
         return(
             <>
-            <Login />
-            <Register />
+            <Login setUser={setUser} />
+            {/* <Register setUser={setUser} /> */}
 
 
             </>
