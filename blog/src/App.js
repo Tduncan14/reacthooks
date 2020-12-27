@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useReducer,useState} from 'react';
 import Login from './user/Login';
 import Logout from './user/Logout';
 import Register from './user/Register';
@@ -22,6 +22,10 @@ function App() {
   const[posts,setPosts] = useState(defaultPosts);
 
 
+  // const [state,dispatch] = useReducer(reducer,initialState)
+
+  // const initialState = {all:true};
+  // dispatch({type:'CHANGE_FILTER', fromDate:'2019-04-30'})
 
 
   return (
