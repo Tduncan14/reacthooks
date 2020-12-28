@@ -7,20 +7,20 @@ import Register from './Register';
 
 
 
-export default function UseBar({user,setUser}){
+export default function UseBar({user,dispatch}){
 
    
 
 
     if(user){
-        return <Logout user={user} setUser={setUser} />
+        return <Logout user={user} dispatch={dispatch} />
     }
     else{
 
         return(
             <>
-            <Login setUser={setUser} />
-            <Register setUser={setUser} />
+            <Login dispatch={dispatch} />
+            <Register dispatch={dispatch} />
 
 
             </>
