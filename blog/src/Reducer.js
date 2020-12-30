@@ -1,70 +1,48 @@
+function userReducer(state,action){
 
-
-
-export function reducer(state,action){
 
     switch(action.type){
-
-
-        case 'LOGIN' :
-
-        
-        return{...state ,username:'Treek', password:'pokemon1'}
-
-
+  
+      case 'LOGIN':
       case 'REGISTER':
-          return{...state, username:'Treek', password:'pokemon1', passwordRepeat:'pokemon1'}
-
-
-     case 'LOGOUT':
-         
-
-
-
-
+        return action.username
+      case 'LOGOUT':
+         return ''
+      default:
+        return state
+  
+  
+  
     }
-
-
-
-
-}
-
-
-
-
-
-
-// function reducer(state,action){
-
-
-
-//     switch(action.type){
-
-//         case'TOGGLE_EXPAND':
-//         return{...state,expandPosts: !state.expandPosts}
-       
-//         case'CHANGE_FILTER':
-//         if(action.all){
-//             return {...state, filter:'all'}
-//         }
-
-//         let filter = typeof state.filter === 'object' ? state.filter:{}
-
-//         if(action.fromDate){
-//             filter = {...filter, fromDate: action.fromDate}
-//         }
-
-//         if(action.byAuthor){
-//             filter = {...filter, byAuthor:action.byAuthor}
-//         }
-
+  
+  }
+  
+  
+  function postReducer(state,action){
+  
+    switch(action.type){
+  
+      case 'CREATE_POST':
+         const newPost =  {title:action.title,   content:action.content,  author:action.author}
+         return[newPost, ...state];
          
-//         return {...state,filter}
+  
+        default: return state
+  
+  
+    }
+  
+  
+  }
+  
+
+  export default function appReducer(state,action){
 
 
 
-//         default:
-//              throw new Error()
 
-//     }
-// }
+      return {
+          user:userReducer(state.user, action),
+          posts:postReducer(state.posts,action)
+      }
+  }
