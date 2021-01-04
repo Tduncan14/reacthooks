@@ -1,4 +1,4 @@
-import React, {useReducer,useState} from 'react';
+import React, {useReducer,useEffect} from 'react';
 import Login from './user/Login';
 import Logout from './user/Logout';
 import Register from './user/Register';
@@ -56,6 +56,26 @@ const defaultPosts = [
 
 function App() {
 
+
+
+  // componentDidMount(){
+
+
+  //   const{title} = this.props
+  //   document.title = title
+  // }
+
+
+  // componentDidUpdate(prevProps){
+
+  //   const{title} = this.prevProps
+    
+  //   if(title !== prevProps.title){
+
+  //     document.title = title
+  //   }
+  // }
+
   // const [user,dispatchUser] = useReducer(userReducer,'')
 
   
@@ -72,6 +92,18 @@ function App() {
 
 
   const {user,posts} = state;
+
+  useEffect(() => {
+
+    if(user){
+      document.title = `${user} - React Hooks Blog`
+    }
+    else{
+      document.title = 'React Hooks Blog'
+    }
+
+
+  },[user])
 
 
   return (
