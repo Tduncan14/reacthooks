@@ -7,6 +7,7 @@ import Post from './post/Post';
 import CreatePost from './post/CreatePost';
 import PostList from './post/PostList'; 
 import appReducer from './Reducer';
+import Header from './Header';
  
 
 const defaultPosts = [
@@ -111,6 +112,8 @@ function App() {
       {/* <Login />
       <Logout user="Treek Lee" />
       <Register /> */}
+
+      <Header text={"React Blogs"}/>
 
       <UserBar user={user} dispatch={dispatch}/>
        {/* <CreatePost user="treek" /> */}
