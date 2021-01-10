@@ -1,10 +1,13 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import {StateContext} from '../context';
 import Posts from './Post';
 
 
 export default function PostList ({
-    posts =[]
+  
 }) {
+     const {state,dispatch} = useContext(StateContext)
+     const {posts} = state
 
     return (
         <div>

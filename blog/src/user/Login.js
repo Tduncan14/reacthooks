@@ -1,9 +1,11 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
+import {StateContext} from '../context';
 
 
+export default function Login (){
 
-export default function Login ({dispatch}){
 
+    const {dispatch} = useContext(StateContext)
 
     const [username,setUsername] = useState('');
  

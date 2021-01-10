@@ -8,7 +8,7 @@ import CreatePost from './post/CreatePost';
 import PostList from './post/PostList'; 
 import appReducer from './Reducer';
 import Header from './Header';
-import {ThemeContext} from './context';
+import {ThemeContext,StateContext} from './context';
 import ChangeTheme from './ChangeTheme';
 
 const defaultPosts = [
@@ -116,6 +116,7 @@ function App() {
 
 
   return (
+    <StateContext.Provider value={{state,dispatch}}>
   <ThemeContext.Provider value={{theme}}>
     <div style={{padding:8}}>
       {/* <Login />
@@ -127,15 +128,16 @@ function App() {
 
       <ChangeTheme theme={theme} setTheme={setTheme}/>
 
-      <UserBar user={user} dispatch={dispatch}/>
+      <UserBar />
        {/* <CreatePost user="treek" /> */}
        <br />
-        { user && <CreatePost user={user} posts={posts}  dispatch={dispatch} />}
+        { user && <CreatePost />}
         <br />
         <hr />
-        <PostList posts={posts} />
+        <PostList  />
     </div>
    </ThemeContext.Provider>
+   </StateContext.Provider>
   );
 }
 
