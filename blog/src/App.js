@@ -8,6 +8,7 @@ import CreatePost from './post/CreatePost';
 import PostList from './post/PostList'; 
 import appReducer from './Reducer';
 import Header from './Header';
+import {ThemeContext} from './context';
  
 
 const defaultPosts = [
@@ -108,6 +109,7 @@ function App() {
 
 
   return (
+  <ThemeContext.Provider value={{primaryColor:'deepskyblue',secondaryColor:'coral'}}>
     <div style={{padding:8}}>
       {/* <Login />
       <Logout user="Treek Lee" />
@@ -123,6 +125,7 @@ function App() {
         <hr />
         <PostList posts={posts} />
     </div>
+   </ThemeContext.Provider>
   );
 }
 
