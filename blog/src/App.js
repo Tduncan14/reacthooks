@@ -1,4 +1,4 @@
-import React, {useReducer,useEffect} from 'react';
+import React, {useReducer,useEffect,useState} from 'react';
 import Login from './user/Login';
 import Logout from './user/Logout';
 import Register from './user/Register';
@@ -9,7 +9,7 @@ import PostList from './post/PostList';
 import appReducer from './Reducer';
 import Header from './Header';
 import {ThemeContext} from './context';
- 
+import ChangeTheme from './ChangeTheme';
 
 const defaultPosts = [
   { title: 'React Hooks', content: 'The greatest thing since sliced bread!', author: 'Daniel Bugl' },
@@ -58,6 +58,13 @@ const defaultPosts = [
 
 function App() {
 
+
+  const[theme,setTheme] = useState({
+
+     primaryColor:'deepskyblue',
+     secondaryColor:'coral'
+
+  })
 
 
   // componentDidMount(){
@@ -109,13 +116,16 @@ function App() {
 
 
   return (
-  <ThemeContext.Provider value={{primaryColor:'deepskyblue',secondaryColor:'coral'}}>
+  <ThemeContext.Provider value={{theme}}>
     <div style={{padding:8}}>
       {/* <Login />
       <Logout user="Treek Lee" />
       <Register /> */}
 
+
       <Header text={"React Blogs"}/>
+
+      <ChangeTheme theme={theme} setTheme={setTheme}/>
 
       <UserBar user={user} dispatch={dispatch}/>
        {/* <CreatePost user="treek" /> */}
