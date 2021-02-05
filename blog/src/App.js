@@ -11,9 +11,9 @@ import Header from './Header';
 import {ThemeContext,StateContext} from './context';
 import ChangeTheme from './ChangeTheme';
 
-const defaultPosts = [
-  { title: 'React Hooks', content: 'The greatest thing since sliced bread!', author: 'Daniel Bugl' },
-  { title: 'Using React Fragments', content: 'Keeping the DOM tree clean!', author: 'Daniel Bugl' }]
+// const defaultPosts = [
+//   { title: 'React Hooks', content: 'The greatest thing since sliced bread!', author: 'Daniel Bugl' },
+//   { title: 'Using React Fragments', content: 'Keeping the DOM tree clean!', author: 'Daniel Bugl' }]
 // ]
 
 
@@ -97,10 +97,26 @@ function App() {
   // dispatch({type:'CHANGE_FILTER', fromDate:'2019-04-30'})
 
 
-  const[state,dispatch] = useReducer(appReducer,{user:'',posts:defaultPosts})
+  const[state,dispatch] = useReducer(appReducer,{user:'',posts:[]})
 
 
   const {user,posts} = state;
+
+
+  useEffect(()=> {
+
+
+   fetch('/api/posts')
+   .then(result => result.json())
+   .then(posts => dispatch({type:'FETCH_POSTS',posts}),[])
+
+
+
+
+
+
+
+  })
 
   useEffect(() => {
 
