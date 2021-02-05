@@ -1,12 +1,7 @@
-import React from 'react';
+import React ,{useEffect,useState} from 'react';
 
 
-const THEMES = [
 
-    {primaryColor:'deepskyblue',secondaryColor:'coral'},
-    {primaryColor:'orchid',secondaryColor:'mediumsegreen'}
-
-]
 
 
 
@@ -29,6 +24,17 @@ function ThemeItem({theme,active,onClick}){
 
 export default function ChangeTheme({theme,setTheme}){
 
+    const [themes,setThemes] = useState([])
+
+
+    useEffect(() => {
+
+        fetch('/api/themes')
+        .then(result => result.json())
+        .then(themes => setThemes(themes))
+
+    },[])
+
     function isActive(t){
 
         return t.primaryColor == theme.primaryColor && t.secondaryColor === theme.secondaryColor
@@ -38,7 +44,7 @@ export default function ChangeTheme({theme,setTheme}){
   return(
     <div>
     Change theme:
-    {THEMES.map((t, i) =>
+    {themes.map((t, i) =>
         <ThemeItem key={'theme-' + i} theme={t} active={isActive(t)} onClick={() => setTheme(t)} />
     )}
 </div>
